@@ -1,0 +1,15 @@
+{
+    "elements": [
+        {
+            "__uuid": "df9a4ce8-e895-42ec-8349-8e78701bdf7c",
+            "__kind": "instrument",
+            "dataKind": "bundled",
+            "title": "EFB",
+            "instrumentName": "EFB",
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    ]
+}

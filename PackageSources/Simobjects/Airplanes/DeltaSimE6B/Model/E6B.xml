@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ModelInfo>
+	<LODS>
+    <LOD minSize="0" 	ModelFile="E6B_LOD00.gltf"/>
+	</LODS>
+	<Behaviors>
+		<Include ModelBehaviorFile="Asobo\Exterior.xml"/>
+    <Include ModelBehaviorFile="Asobo\Generic\FX.xml"/>
+
+
+    <Component ID = "FX1_LOW_ALTITUDE">
+      <Parameters Type="Override">
+        <FX_GRAPH_PARAM_0>part_size_clamp, 28</FX_GRAPH_PARAM_0>
+      </Parameters>
+      <UseTemplate Name="ASOBO_FX_LOW_ALTITUDE_DUST">
+        <FX_GUID>{C8FB3147-D775-4CD1-AC8F-AEB717924F86}</FX_GUID>
+      </UseTemplate>
+    </Component>
+    <Component ID="LANDING_FX">
+      <UseTemplate Name="ASOBO_LANDING_FX"/>
+    </Component>
+
+		<Component ID="FX_CONTRAIL_QUAD">
+			<OverrideTemplateParameters>
+					<FX_CODE>(A:CONTRAILS CONDITIONS MET:1, Keyframe) 0 &gt;</FX_CODE>
+					<FX_OFFSET_X>0</FX_OFFSET_X>
+					<FX_OFFSET_Y>0</FX_OFFSET_Y>
+					<FX_OFFSET_Z>0</FX_OFFSET_Z>
+					<FX_GUID>{F42CE638-11EB-4FC8-B9B0-111A220D681F}</FX_GUID>
+					<FX_NAME>FX_CONTRAILS</FX_NAME>
+			</OverrideTemplateParameters>
+			<Component ID="FX_CONTRAIL_QUAD_LEFT_IN" Node="L1_EngineFX">
+				<UseTemplate Name="ASOBO_GT_FX">
+				</UseTemplate>
+			</Component>
+			<Component ID="FX_CONTRAIL_QUAD_LEFT_OUT" Node="L2_EngineFX">
+				<UseTemplate Name="ASOBO_GT_FX">
+				</UseTemplate>
+			</Component>
+			<Component ID="FX_CONTRAIL_QUAD_RIGHT_IN" Node="R1_EngineFX">
+				<UseTemplate Name="ASOBO_GT_FX">
+				</UseTemplate>
+			</Component>
+			<Component ID="FX_CONTRAIL_QUAD_RIGHT_OUT" Node="R2_EngineFX">
+				<UseTemplate Name="ASOBO_GT_FX">
+				</UseTemplate>
+			</Component>
+		</Component>
+		<Component ID="FX_CONTRAIL_RIBBON">
+			<OverrideTemplateParameters>
+					<FX_CODE>(A:CONTRAILS CONDITIONS MET:1, Keyframe) 0 &gt;</FX_CODE>
+					<FX_OFFSET_X>0</FX_OFFSET_X>
+					<FX_OFFSET_Y>0</FX_OFFSET_Y>
+					<FX_OFFSET_Z>0</FX_OFFSET_Z>
+					<FX_GUID>{904EC2CE-F8DD-4480-99E7-B33F7CF6E114}</FX_GUID>
+					<FX_NAME>FX_CONTRAILS_RIBBON</FX_NAME>
+			</OverrideTemplateParameters>
+			<Component ID="FX_CONTRAIL_RIBBON_LEFT_OUT" Node="L1_EngineFX">
+				<UseTemplate Name="ASOBO_GT_FX">
+				</UseTemplate>
+			</Component>
+			<Component ID="FX_CONTRAIL_RIBBON_RIGHT_OUT" Node="R2_EngineFX">
+				<UseTemplate Name="ASOBO_GT_FX">
+				</UseTemplate>
+			</Component>
+		</Component>
+
+		<Component ID="GEARS">
+			<UseTemplate Name="ASOBO_GEAR_Center_Template">
+				<ANIM_NAME>c_gear</ANIM_NAME>
+			  </UseTemplate>
+			  <UseTemplate Name="ASOBO_GEAR_Left_Template">
+				<ANIM_NAME>l_gear</ANIM_NAME>
+			  </UseTemplate>
+			  <UseTemplate Name="ASOBO_GEAR_Right_Template">
+				<ANIM_NAME>r_gear</ANIM_NAME>
+			  </UseTemplate>
+			<UseTemplate Name="ASOBO_GEAR_Center_Tire_Template">
+				<ANIM_NAME>c_tire_key</ANIM_NAME>
+				<NODE_ID_STILL>Wheel_Nose_Still</NODE_ID_STILL>
+				<NODE_ID_BLURRED>Wheel_Nose_blurred</NODE_ID_BLURRED>
+				<MIN_RPM_FOR_BLUR>100</MIN_RPM_FOR_BLUR>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_GEAR_Center_Tire_Template">
+				<ANIM_NAME>c_tire_key</ANIM_NAME>
+				<NODE_ID_STILL>LANDINGGEAR_Front_Wheel_Still_Center</NODE_ID_STILL>
+				<NODE_ID_BLURRED>LANDINGGEAR_Front_Wheel_Blurred_Center</NODE_ID_BLURRED>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_HANDLING_Elevator_Template">
+				<ANIM_NAME>elevator_percent_key</ANIM_NAME>
+			</UseTemplate>
+      <UseTemplate Name="ASOBO_HANDLING_Rudder_Template">
+				<ANIM_NAME>rudder_percent_key</ANIM_NAME>
+				<USE_INTEGRATED_TRIM>True</USE_INTEGRATED_TRIM>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_GEAR_Left_Tire_Template">
+				<ANIM_NAME>l_tire_key</ANIM_NAME>
+				<NODE_ID_STILL>LANDINGGEAR_Wing_Wheel1_Still_Left</NODE_ID_STILL>
+				<NODE_ID_STILL_2>LANDINGGEAR_Wing_Wheel2_Still_Left</NODE_ID_STILL_2>
+				<NODE_ID_BLURRED>LANDINGGEAR_Wing_Wheel1_Blurred_Left</NODE_ID_BLURRED>
+				<NODE_ID_BLURRED_2>LANDINGGEAR_Wing_Wheel2_Blurred_Left</NODE_ID_BLURRED_2>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_GEAR_Right_Tire_Template">
+				<ANIM_NAME>r_tire_key</ANIM_NAME>
+				<NODE_ID_STILL>LANDINGGEAR_Wing_Wheel1_Still_Right</NODE_ID_STILL>
+				<NODE_ID_STILL_2>LANDINGGEAR_Wing_Wheel2_Still_Right</NODE_ID_STILL_2>
+				<NODE_ID_BLURRED>LANDINGGEAR_Wing_Wheel1_Blurred_Right</NODE_ID_BLURRED>
+				<NODE_ID_BLURRED_2>LANDINGGEAR_Wing_Wheel2_Blurred_Right</NODE_ID_BLURRED_2>
+			</UseTemplate>
+		</Component>
+    
+       <!-- CONTROLS -->
+ 
+       <Component ID="Autopilot_PNL">
+        <UseTemplate Name="ASOBO_AUTOPILOT_Knob_Heading_Template">
+          <NODE_ID>HDG_KNOB</NODE_ID>
+          <ANIM_NAME_KNOB>HEADING_KNOB</ANIM_NAME_KNOB>
+          <ANIM_NAME_PUSH>PUSH_HEADING</ANIM_NAME_PUSH>
+          <TYPE>B747</TYPE>
+        </UseTemplate>
+      <UseTemplate Name="ASOBO_AUTOPILOT_Push_SpeedToggle_Template">
+        <NODE_ID>IAS_TOGGLE</NODE_ID>
+        <ANIM_NAME>IAS_TOGGLEPSH</ANIM_NAME>
+        <NO_TEXT_EMISSIVE>True</NO_TEXT_EMISSIVE>
+        <NO_INDICATOR>True</NO_INDICATOR>
+        <TYPE>B747</TYPE>
+      </UseTemplate>
+      <UseTemplate Name="ASOBO_AUTOPILOT_Knob_SpeedMach_Template">
+        <NODE_ID>knob_autopilot_speed</NODE_ID>
+        <ANIM_NAME>autopilot_knob_speed</ANIM_NAME>
+        <ANIM_NAME_PUSH>knob_autopilot_speed_push</ANIM_NAME_PUSH>
+        <TYPE>B747</TYPE>
+      </UseTemplate>
+      <UseTemplate Name="ASOBO_AUTOPILOT_Push_AutoThrottle_Template">
+        <NODE_ID>switch_autopilot_at_arm</NODE_ID>
+        <ANIM_NAME>autopilot_switch_at_arm</ANIM_NAME>
+        <TYPE>B747</TYPE>
+      </UseTemplate>
+      <UseTemplate Name="ASOBO_AUTOPILOT_Knob_VerticalSpeed_Template">
+        <NODE_ID>wheel_autopilot_vert_speed</NODE_ID>
+        <ANIM_NAME>autopilot_wheel_vert_speed</ANIM_NAME>
+        <UP_DEC_DN_INC>True</UP_DEC_DN_INC>
+      </UseTemplate>
+      <UseTemplate Name="ASOBO_AUTOPILOT_Push_Approach_Template">
+        <NODE_ID>autopilot_push_app</NODE_ID>
+        <ANIM_NAME>autopilot_push_app</ANIM_NAME>
+        <EMISSIVE_NODE_ID>autopilot_push_app.001</EMISSIVE_NODE_ID>
+        <ACTIVE_NODE_ID>autopilot_push_app.001</ACTIVE_NODE_ID>
+        <AUTOPILOT_PUSH_BUTTON_ON>autopilot_largepush_button_on</AUTOPILOT_PUSH_BUTTON_ON>
+        <AUTOPILOT_PUSH_BUTTON_OFF>autopilot_largepush_button_off</AUTOPILOT_PUSH_BUTTON_OFF>
+        <DISABLE_GPS_MODE>False</DISABLE_GPS_MODE>
+      </UseTemplate>
+      <UseTemplate Name="ASOBO_AUTOPILOT_Knob_Bank_Limit_Template">
+        <NODE_ID>knob_autopilot_hdg_bank_limit</NODE_ID>
+        <ANIM_NAME>knob_autopilot_hdg_bank_limit</ANIM_NAME>
+        <SETTINGS_COUNT>5</SETTINGS_COUNT>
+        <COUNT>5</COUNT>
+      </UseTemplate>
+    </Component>
+    <Component ID="ENGINE">
+			<DefaultTemplateParameters>
+				<STILL_NODE_ID_COUNT>2</STILL_NODE_ID_COUNT>
+			</DefaultTemplateParameters>
+			<UseTemplate Name="ASOBO_ENGINE_Turbine_Template">
+				<ID>1</ID>
+				<ANIM_NODE_ID>N1_1_anim</ANIM_NODE_ID>
+				<ANIM_NAME>N1_1_anim</ANIM_NAME>
+				<STILL_NODE_ID>ENG_1_STILL_LEFT</STILL_NODE_ID>
+				<SLOW_NODE_ID>ENG_1_SLOW_LEFT</SLOW_NODE_ID>
+				<BLURRED_NODE_ID>ENG_1_BLURRED_LEFT</BLURRED_NODE_ID>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_ENGINE_Turbine_Template">
+				<ID>2</ID>
+				<ANIM_NODE_ID>N1_2_anim</ANIM_NODE_ID>
+				<ANIM_NAME>N1_2_anim</ANIM_NAME>
+				<STILL_NODE_ID>ENG_2_STILL_LEFT</STILL_NODE_ID>
+				<SLOW_NODE_ID>ENG_2_SLOW_LEFT</SLOW_NODE_ID>
+				<BLURRED_NODE_ID>ENG_2_BLURRED_LEFT</BLURRED_NODE_ID>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_ENGINE_Turbine_Template">
+				<ID>3</ID>
+				<ANIM_NODE_ID>N1_3_anim</ANIM_NODE_ID>
+				<ANIM_NAME>N1_3_anim</ANIM_NAME>
+				<STILL_NODE_ID>ENG_3_STILL_LEFT</STILL_NODE_ID>
+				<SLOW_NODE_ID>ENG_3_SLOW_LEFT</SLOW_NODE_ID>
+				<BLURRED_NODE_ID>ENG_3_BLURRED_LEFT</BLURRED_NODE_ID>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_ENGINE_Turbine_Template">
+				<ID>4</ID>
+				<ANIM_NODE_ID>N1_4_anim</ANIM_NODE_ID>
+				<ANIM_NAME>N1_4_anim</ANIM_NAME>
+				<STILL_NODE_ID>ENG_4_STILL_LEFT</STILL_NODE_ID>
+				<SLOW_NODE_ID>ENG_4_SLOW_LEFT</SLOW_NODE_ID>
+				<BLURRED_NODE_ID>ENG_4_BLURRED_LEFT</BLURRED_NODE_ID>
+			</UseTemplate>
+
+			<!-- <UseTemplate Name="ASOBO_HANDLING_Spoilers_Template">
+				<ANIM_NAME_LEFT>AR Recpt</ANIM_NAME_LEFT>
+				<ANIM_LAG>25</ANIM_LAG>
+        <MAX_VALUE>100</MAX_VALUE>
+			</UseTemplate> -->
+
+
+		</Component>
+
+  </Behaviors>
+	<!-- CUSTOM ANIMATIONS GO BELOW -->
+ <Animation name="AR Recpt" guid="f1b3b137-6b59-447b-a1cc-92fb00c76311" type="Sim" typeparam="AutoPlay" />
+  <PartInfo>
+	  <Name>AR Recpt</Name>
+	  <AnimLength>100</AnimLength>
+	  <Animation>
+		  <Parameter>
+        <Code>(A:SPOILERS LEFT POSITION, Percent) 100 *</Code>
+			  <Lag>50</Lag>
+	  </Parameter>
+	  </Animation>
+  </PartInfo>
+
+<Animation name="Cargo_enterance" guid="33fbbb17-d9a3-4f0e-9126-5f1e93c683fa" length="100" type="Sim" typeparam="AutoPlay" />
+<PartInfo>
+  <Name>Cargo_enterance</Name>
+  <AnimLength>100</AnimLength>
+  <Animation>
+    <Parameter>
+       <Code>(L:KC135_Cargo_door, bool) 100 *</Code>
+      <Lag>20</Lag>
+  </Parameter>
+  </Animation>
+</PartInfo>
+<Animation name="Crew_enterance" guid="42a1b6b3-f040-4bf9-a4a0-dcb157449201" length="100" type="Sim" typeparam="AutoPlay" />
+<PartInfo>
+  <Name>Crew_enterance</Name>
+  <AnimLength>100</AnimLength>
+  <Animation>
+    <Parameter>
+       <Code>(L:KC135_Crew_enterance, bool) 100 *</Code>
+      <Lag>20</Lag>
+  </Parameter>
+  </Animation>
+</PartInfo>
+
+  <Animation guid="e8cc59f8-b2de-4ef9-a747-822265db2d4c" name="Flaps_Left" type="Sim" typeparam="AutoPlay"/>
+  <Animation guid="b8f394b5-3c3a-424f-9b50-e81bc4fb486e" name="Flaps_Right" type="Sim" typeparam="AutoPlay"/>
+  <PartInfo>
+    <Name>Flaps_Left</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Sim>
+          <Variable>TRAILING EDGE FLAPS LEFT PERCENT</Variable>
+          <Units>percent</Units>
+          <Scale>1</Scale>
+          <Bias>0</Bias>
+        </Sim>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+  <PartInfo>
+    <Name>Flaps_Right</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Sim>
+          <Variable>TRAILING EDGE FLAPS RIGHT PERCENT</Variable>
+          <Units>percent</Units>
+          <Scale>1</Scale>
+          <Bias>0</Bias>
+        </Sim>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+  <Animation name="r_aileron_key" guid="77db62be-36d4-4c03-bea7-c4cc2a224d9d" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>r_aileron_key</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Sim>
+          <Variable>AILERON RIGHT DEFLECTION PCT</Variable>
+          <Units>percent</Units>
+          <Scale>-1</Scale>
+          <Bias>50</Bias>
+        </Sim>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+  <Animation name="l_aileron_key" guid="93b074a9-7d94-4fe7-a825-7d7758960761" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>l_aileron_key</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Sim>
+          <Variable>AILERON LEFT DEFLECTION PCT</Variable>
+          <Units>percent</Units>
+          <Scale>-1</Scale>
+          <Bias>50</Bias>
+        </Sim>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+
+
+</ModelInfo>

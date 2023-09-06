@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ModelInfo>
+	<LODS>
+    <LOD minSize="0" 	ModelFile="RC135_LOD00.gltf"/>
+	</LODS>
+	<Behaviors>
+		<Include ModelBehaviorFile="Asobo\Exterior.xml"/>
+    <Include ModelBehaviorFile="Asobo\Generic\FX.xml"/>
+
+    <Component ID = "FX1_LOW_ALTITUDE">
+      <Parameters Type="Override">
+        <FX_GRAPH_PARAM_0>part_size_clamp, 28</FX_GRAPH_PARAM_0>
+      </Parameters>
+      <UseTemplate Name="ASOBO_FX_LOW_ALTITUDE_DUST">
+        <FX_GUID>{C8FB3147-D775-4CD1-AC8F-AEB717924F86}</FX_GUID>
+      </UseTemplate>
+    </Component>
+    <Component ID="LANDING_FX">
+      <UseTemplate Name="ASOBO_LANDING_FX"/>
+    </Component>
+
+		<Component ID="FX_CONTRAIL_QUAD">
+			<OverrideTemplateParameters>
+					<FX_CODE>(A:CONTRAILS CONDITIONS MET:1, Keyframe) 0 &gt;</FX_CODE>
+					<FX_OFFSET_X>0</FX_OFFSET_X>
+					<FX_OFFSET_Y>0</FX_OFFSET_Y>
+					<FX_OFFSET_Z>0</FX_OFFSET_Z>
+					<FX_GUID>{F42CE638-11EB-4FC8-B9B0-111A220D681F}</FX_GUID>
+					<FX_NAME>FX_CONTRAILS</FX_NAME>
+			</OverrideTemplateParameters>
+			<Component ID="FX_CONTRAIL_QUAD_LEFT_IN" Node="L1_EngineFX">
+				<UseTemplate Name="ASOBO_GT_FX">
+				</UseTemplate>
+			</Component>
+			<Component ID="FX_CONTRAIL_QUAD_LEFT_OUT" Node="L2_EngineFX">
+				<UseTemplate Name="ASOBO_GT_FX">
+				</UseTemplate>
+			</Component>
+			<Component ID="FX_CONTRAIL_QUAD_RIGHT_IN" Node="R1_EngineFX">
+				<UseTemplate Name="ASOBO_GT_FX">
+				</UseTemplate>
+			</Component>
+			<Component ID="FX_CONTRAIL_QUAD_RIGHT_OUT" Node="R2_EngineFX">
+				<UseTemplate Name="ASOBO_GT_FX">
+				</UseTemplate>
+			</Component>
+		</Component>
+		<Component ID="FX_CONTRAIL_RIBBON">
+			<OverrideTemplateParameters>
+					<FX_CODE>(A:CONTRAILS CONDITIONS MET:1, Keyframe) 0 &gt;</FX_CODE>
+					<FX_OFFSET_X>0</FX_OFFSET_X>
+					<FX_OFFSET_Y>0</FX_OFFSET_Y>
+					<FX_OFFSET_Z>0</FX_OFFSET_Z>
+					<FX_GUID>{904EC2CE-F8DD-4480-99E7-B33F7CF6E114}</FX_GUID>
+					<FX_NAME>FX_CONTRAILS_RIBBON</FX_NAME>
+			</OverrideTemplateParameters>
+			<Component ID="FX_CONTRAIL_RIBBON_LEFT_OUT" Node="L1_EngineFX">
+				<UseTemplate Name="ASOBO_GT_FX">
+				</UseTemplate>
+			</Component>
+			<Component ID="FX_CONTRAIL_RIBBON_RIGHT_OUT" Node="R2_EngineFX">
+				<UseTemplate Name="ASOBO_GT_FX">
+				</UseTemplate>
+			</Component>
+		</Component>
+
+		<Component ID="GEARS">
+			<UseTemplate Name="ASOBO_GEAR_Center_Template">
+				<ANIM_NAME>c_gear</ANIM_NAME>
+			  </UseTemplate>
+			  <UseTemplate Name="ASOBO_GEAR_Left_Template">
+				<ANIM_NAME>l_gear</ANIM_NAME>
+			  </UseTemplate>
+			  <UseTemplate Name="ASOBO_GEAR_Right_Template">
+				<ANIM_NAME>r_gear</ANIM_NAME>
+			  </UseTemplate>
+			<UseTemplate Name="ASOBO_HANDLING_Elevator_Template">
+				<ANIM_NAME>elevator_percent_key</ANIM_NAME>
+			</UseTemplate>
+      <UseTemplate Name="ASOBO_HANDLING_Rudder_Template">
+				<ANIM_NAME>rudder_percent_key</ANIM_NAME>
+				<USE_INTEGRATED_TRIM>True</USE_INTEGRATED_TRIM>
+			</UseTemplate>
+
+			<UseTemplate Name="ASOBO_GEAR_Center_Tire_Template">
+				<ANIM_NAME>c_tire_key</ANIM_NAME>
+				<NODE_ID_STILL>Wheel_Nose_Still</NODE_ID_STILL>
+				<NODE_ID_BLURRED>Wheel_Nose_blurred</NODE_ID_BLURRED>
+				<MIN_RPM_FOR_BLUR>100</MIN_RPM_FOR_BLUR>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_GEAR_Left_Tire_Template">
+				<ANIM_NAME>l_tire_key</ANIM_NAME>
+				<NODE_ID_STILL>LANDINGGEAR_Wing_Wheel1_Still_Left</NODE_ID_STILL>
+				<NODE_ID_STILL_2>LANDINGGEAR_Wing_Wheel2_Still_Left</NODE_ID_STILL_2>
+				<NODE_ID_BLURRED>LANDINGGEAR_Wing_Wheel1_Blurred_Left</NODE_ID_BLURRED>
+				<NODE_ID_BLURRED_2>LANDINGGEAR_Wing_Wheel2_Blurred_Left</NODE_ID_BLURRED_2>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_GEAR_Right_Tire_Template">
+				<ANIM_NAME>r_tire_key</ANIM_NAME>
+				<NODE_ID_STILL>LANDINGGEAR_Wing_Wheel1_Still_Right</NODE_ID_STILL>
+				<NODE_ID_STILL_2>LANDINGGEAR_Wing_Wheel2_Still_Right</NODE_ID_STILL_2>
+				<NODE_ID_BLURRED>LANDINGGEAR_Wing_Wheel1_Blurred_Right</NODE_ID_BLURRED>
+				<NODE_ID_BLURRED_2>LANDINGGEAR_Wing_Wheel2_Blurred_Right</NODE_ID_BLURRED_2>
+			</UseTemplate>
+		</Component>
+    
+       <!-- CONTROLS -->
+ 
+       <Component ID="Autopilot_PNL">
+        <UseTemplate Name="ASOBO_AUTOPILOT_Knob_Heading_Template">
+          <NODE_ID>HDG_KNOB</NODE_ID>
+          <ANIM_NAME_KNOB>HEADING_KNOB</ANIM_NAME_KNOB>
+          <ANIM_NAME_PUSH>PUSH_HEADING</ANIM_NAME_PUSH>
+          <TYPE>B747</TYPE>
+        </UseTemplate>
+      <UseTemplate Name="ASOBO_AUTOPILOT_Push_SpeedToggle_Template">
+        <NODE_ID>IAS_TOGGLE</NODE_ID>
+        <ANIM_NAME>IAS_TOGGLEPSH</ANIM_NAME>
+        <NO_TEXT_EMISSIVE>True</NO_TEXT_EMISSIVE>
+        <NO_INDICATOR>True</NO_INDICATOR>
+        <TYPE>B747</TYPE>
+      </UseTemplate>
+      <UseTemplate Name="ASOBO_AUTOPILOT_Knob_SpeedMach_Template">
+        <NODE_ID>knob_autopilot_speed</NODE_ID>
+        <ANIM_NAME>autopilot_knob_speed</ANIM_NAME>
+        <ANIM_NAME_PUSH>knob_autopilot_speed_push</ANIM_NAME_PUSH>
+        <TYPE>B747</TYPE>
+      </UseTemplate>
+      <UseTemplate Name="ASOBO_AUTOPILOT_Push_AutoThrottle_Template">
+        <NODE_ID>switch_autopilot_at_arm</NODE_ID>
+        <ANIM_NAME>autopilot_switch_at_arm</ANIM_NAME>
+        <TYPE>B747</TYPE>
+      </UseTemplate>
+      <UseTemplate Name="ASOBO_AUTOPILOT_Knob_VerticalSpeed_Template">
+        <NODE_ID>wheel_autopilot_vert_speed</NODE_ID>
+        <ANIM_NAME>autopilot_wheel_vert_speed</ANIM_NAME>
+        <UP_DEC_DN_INC>True</UP_DEC_DN_INC>
+      </UseTemplate>
+      <UseTemplate Name="ASOBO_AUTOPILOT_Push_Approach_Template">
+        <NODE_ID>autopilot_push_app</NODE_ID>
+        <ANIM_NAME>autopilot_push_app</ANIM_NAME>
+        <EMISSIVE_NODE_ID>autopilot_push_app.001</EMISSIVE_NODE_ID>
+        <ACTIVE_NODE_ID>autopilot_push_app.001</ACTIVE_NODE_ID>
+        <AUTOPILOT_PUSH_BUTTON_ON>autopilot_largepush_button_on</AUTOPILOT_PUSH_BUTTON_ON>
+        <AUTOPILOT_PUSH_BUTTON_OFF>autopilot_largepush_button_off</AUTOPILOT_PUSH_BUTTON_OFF>
+        <DISABLE_GPS_MODE>False</DISABLE_GPS_MODE>
+      </UseTemplate>
+      <UseTemplate Name="ASOBO_AUTOPILOT_Knob_Bank_Limit_Template">
+        <NODE_ID>knob_autopilot_hdg_bank_limit</NODE_ID>
+        <ANIM_NAME>knob_autopilot_hdg_bank_limit</ANIM_NAME>
+        <SETTINGS_COUNT>5</SETTINGS_COUNT>
+        <COUNT>5</COUNT>
+      </UseTemplate>
+    </Component>
+    <Component ID="ENGINE">
+			<DefaultTemplateParameters>
+				<STILL_NODE_ID_COUNT>2</STILL_NODE_ID_COUNT>
+			</DefaultTemplateParameters>
+			<UseTemplate Name="ASOBO_ENGINE_Turbine_Template">
+				<ID>1</ID>
+				<ANIM_NODE_ID>N1_1_anim</ANIM_NODE_ID>
+				<ANIM_NAME>N1_1_anim</ANIM_NAME>
+				<STILL_NODE_ID>ENG_1_STILL_LEFT</STILL_NODE_ID>
+				<SLOW_NODE_ID>ENG_1_SLOW_LEFT</SLOW_NODE_ID>
+				<BLURRED_NODE_ID>ENG_1_BLURRED_LEFT</BLURRED_NODE_ID>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_ENGINE_Turbine_Template">
+				<ID>2</ID>
+				<ANIM_NODE_ID>N1_2_anim</ANIM_NODE_ID>
+				<ANIM_NAME>N1_2_anim</ANIM_NAME>
+				<STILL_NODE_ID>ENG_2_STILL_LEFT</STILL_NODE_ID>
+				<SLOW_NODE_ID>ENG_2_SLOW_LEFT</SLOW_NODE_ID>
+				<BLURRED_NODE_ID>ENG_2_BLURRED_LEFT</BLURRED_NODE_ID>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_ENGINE_Turbine_Template">
+				<ID>3</ID>
+				<ANIM_NODE_ID>N1_3_anim</ANIM_NODE_ID>
+				<ANIM_NAME>N1_3_anim</ANIM_NAME>
+				<STILL_NODE_ID>ENG_3_STILL_LEFT</STILL_NODE_ID>
+				<SLOW_NODE_ID>ENG_3_SLOW_LEFT</SLOW_NODE_ID>
+				<BLURRED_NODE_ID>ENG_3_BLURRED_LEFT</BLURRED_NODE_ID>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_ENGINE_Turbine_Template">
+				<ID>4</ID>
+				<ANIM_NODE_ID>N1_4_anim</ANIM_NODE_ID>
+				<ANIM_NAME>N1_4_anim</ANIM_NAME>
+				<STILL_NODE_ID>ENG_4_STILL_LEFT</STILL_NODE_ID>
+				<SLOW_NODE_ID>ENG_4_SLOW_LEFT</SLOW_NODE_ID>
+				<BLURRED_NODE_ID>ENG_4_BLURRED_LEFT</BLURRED_NODE_ID>
+			</UseTemplate>
+      
+      <Component ID="Probe_Anim" Node="Empty.007">
+        <UseTemplate Name="ASOBO_GT_Anim_Code">
+          <PART_ID>Empty.007</PART_ID>
+          <ANIM_NAME>Probe_Anim</ANIM_NAME>
+          <NODE_ID>Empty.007</NODE_ID>
+          <ANIM_CODE>
+                (A:SPOILERS RIGHT POSITION,percent) 100 * 
+            </ANIM_CODE>
+          <ANIM_LAG>5</ANIM_LAG>
+        </UseTemplate>
+    </Component>
+
+		</Component>
+
+  </Behaviors>
+
+  <Animation name="Boom_Drogue_Move" guid="40503b31-501b-421d-82cc-c08f880d9aa0" length="100" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>Boom_Drogue_Move</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+         <Code>
+          (A:SPOILERS RIGHT POSITION,percent) 0 ==
+          (A:AIRSPEED INDICATED, knots) 50 &gt; and
+          if{
+            60
+          } els{
+            (A:AIRSPEED INDICATED, knots)
+          }
+          
+        
+        </Code>
+        <Lag>20</Lag>
+    </Parameter>
+    </Animation>
+  </PartInfo>
+  <Animation name="MPRS_Drogue_Move" guid="a6f08f3b-ab6f-42c3-9b08-00fb05311586" length="100" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>MPRS_Drogue_Move</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+         <Code>
+          (A:SPOILERS RIGHT POSITION,percent) 0 !==
+         </Code>
+        <Lag>20</Lag>
+    </Parameter>
+    </Animation>
+  </PartInfo>
+  <Animation name="Drogue_Angle" guid="c2939585-0118-4b7e-86b8-cbf0b0516d2c" length="360" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>Drogue_Angle</Name>
+    <AnimLength>360</AnimLength>
+    <Animation>
+      <Parameter>
+         <Code>(A:PLANE PITCH DEGREES, degrees) 180 +</Code>
+        <Lag>20</Lag>
+    </Parameter>
+    </Animation>
+  </PartInfo>
+
+
+	<!-- CUSTOM ANIMATIONS GO BELOW -->
+<Animation name="r_spoiler_key" guid="1DAC9F00-4B37-417f-A463-8D6F2B72024D" length="100" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>r_spoiler_key</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Sim>
+          <Variable>SPOILERS RIGHT POSITION</Variable>
+          <Units>percent</Units>
+        </Sim>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+
+<Animation name="Cargo_enterance" guid="33fbbb17-d9a3-4f0e-9126-5f1e93c683fa" length="100" type="Sim" typeparam="AutoPlay" />
+<PartInfo>
+  <Name>Cargo_enterance</Name>
+  <AnimLength>100</AnimLength>
+  <Animation>
+    <Parameter>
+       <Code>(L:KC135_Cargo_door, bool) 100 *</Code>
+      <Lag>20</Lag>
+  </Parameter>
+  </Animation>
+</PartInfo>
+<Animation name="Crew_enterance" guid="42a1b6b3-f040-4bf9-a4a0-dcb157449201" length="100" type="Sim" typeparam="AutoPlay" />
+<PartInfo>
+  <Name>Crew_enterance</Name>
+  <AnimLength>100</AnimLength>
+  <Animation>
+    <Parameter>
+       <Code>(L:KC135_Crew_enterance, bool) 100 *</Code>
+      <Lag>20</Lag>
+  </Parameter>
+  </Animation>
+</PartInfo>
+
+<Animation name="switch_auto_throttle" guid="dbc9acc0-0542-4699-b117-e93494fceaef" length="50" type="Sim" typeParam2="switch_auto_throttle" typeParam="AutoPlay" />
+<Animation name="switch_flight_director" guid="dfab66dd-4abc-4d6e-a338-a4e2ec849add" length="50" type="Sim" typeParam2="switch_flight_director" typeParam="AutoPlay" />
+<Animation name="switch_autopilot_master" guid="87fc8726-f402-4d30-9fb5-8027f9b89d16" length="50" type="Sim" typeParam2="switch_autopilot_master" typeParam="AutoPlay" />
+<PartInfo>
+    <Name>switch_auto_throttle</Name>
+    <MouseRect>
+      <Cursor>Hand</Cursor>
+      <HelpID>HELPID_AUTOPILOT_AUTOTHROTTLE</HelpID>
+      <TooltipID>TOOLTIPTEXT_AUTOPILOT_AUTOTHROTTLE</TooltipID>
+      <EventID>AUTO_THROTTLE_ARM</EventID>
+    </MouseRect>
+    <AnimLength>50</AnimLength>
+    <Animation>
+      <Parameter>
+        <Sim>
+          <Variable>AUTOPILOT THROTTLE ARM</Variable>
+          <Units>bool</Units>
+          <Scale>50</Scale>
+          <Bias>0</Bias>
+        </Sim>
+        <Lag>400</Lag>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+  <PartInfo>
+    <Name>switch_flight_director</Name>
+    <MouseRect>
+      <Cursor>Hand</Cursor>
+      <HelpID>HELPID_AUTOPILOT_FLIGHT_DIRECTOR_SWITCH</HelpID>
+      <TooltipID>TOOLTIPTEXT_AUTOPILOT_FLIGHT_DIRECTOR_SWITCH</TooltipID>
+      <EventID>TOGGLE_FLIGHT_DIRECTOR</EventID>
+    </MouseRect>
+    <AnimLength>25</AnimLength>
+    <Animation>
+      <Parameter>
+        <Sim>
+          <Variable>AUTOPILOT FLIGHT DIRECTOR ACTIVE</Variable>
+          <Units>bool</Units>
+          <Scale>50</Scale>
+          <Bias>0</Bias>
+        </Sim>
+        <Lag>400</Lag>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+  <PartInfo>
+    <Name>switch_autopilot_master</Name>
+    <MouseRect>
+      <Cursor>Hand</Cursor>
+      <HelpID>HELPID_AUTOPILOT_MASTER</HelpID>
+      <TooltipID>TOOLTIPTEXT_AUTOPILOT_MASTER</TooltipID>
+      <EventID>AP_MASTER</EventID>
+    </MouseRect>
+    <AnimLength>25</AnimLength>
+    <Animation>
+      <Parameter>
+        <Sim>
+          <Variable>AUTOPILOT MASTER</Variable>
+          <Units>bool</Units>
+          <Scale>50</Scale>
+          <Bias>0</Bias>
+        </Sim>
+        <Lag>400</Lag>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+<Animation name="HDG HOLD" guid="58219eb3-a5ea-4ec6-b528-b944c1b00052" length="25" type="Sim" typeParam2="HDG HOLD" typeParam="AutoPlay" />
+<PartInfo>
+  <Name>HDG HOLD</Name>
+  <AnimLength>25</AnimLength>
+  <Animation>
+    <Parameter>
+      <Code>(A:Autopilot heading lock,bool) 25 * </Code>
+      <Lag>100</Lag>
+    </Parameter>
+  </Animation>
+  <MouseRect>
+    <Cursor>Hand</Cursor>
+    <TooltipText>%Heading hold %((A:Autopilot heading lock, bool))%{if}%ON%{else}%OFF%</TooltipText>
+    <CallbackCode>
+      (K:AP_HDG_HOLD,bool) ! (&gt;K:AP_HDG_HOLD,bool)
+        </CallbackCode>
+  </MouseRect>
+</PartInfo>
+<Animation name="VSSPEED" guid="b3d01bd0-9c19-462d-b1f3-046f80bd63f5" length="100" type="Sim" typeParam2="VSSPEED" typeParam="AutoPlay" />
+<PartInfo>
+  <Name>VSSPEED</Name>
+  <AnimLength>100</AnimLength>
+  <Animation>
+	<Parameter>
+	  <Code>50 (A:Autopilot vertical hold var, ft/min) 196 / + </Code>
+	</Parameter>
+  </Animation>
+  <MouseRect>
+	<Cursor>Hand</Cursor>
+	<TooltipText>%Attitude Hold %((A:Autopilot attitude hold, bool))%{if}%ON%{else}%OFF%</TooltipText>
+	<CallbackCode>
+			  (K:AP_ATT_HOLD) ! (&gt;K:AP_ATT_HOLD)
+				  </CallbackCode>
+  </MouseRect>
+</PartInfo> 
+
+<Animation name="autopilot_push_vs" guid="3ef32557-4a54-4d53-b9f7-2c001db17947" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+  <Name>autopilot_push_vs</Name>
+  <AnimLength>100</AnimLength>
+  <Animation>
+    <Parameter>
+      <Code>(L:AP_VS_ACTIVE,bool) 100 * </Code>
+      <Lag>100</Lag>
+    </Parameter>
+  </Animation>
+  <MouseRect>
+    <Cursor>Hand</Cursor>
+    <TooltipText>%VS SPEED %((L:AP_VS_ACTIVE, bool))%{if}%ON%{else}%OFF%</TooltipText>
+    <CallbackCode>
+      (L:AP_VS_ACTIVE,bool) ! (&gt;L:AP_VS_ACTIVE,bool)
+        </CallbackCode>
+  </MouseRect>
+</PartInfo>
+<Animation name="BTTN_AUTO_SPOILER" guid="cd801140-1abf-4b1f-a8df-8277c586e451" length="100" type="Sim" typeParam2="BTTN_AUTO_SPOILER" typeParam="AutoPlay" />
+<PartInfo>
+  <Name>BTTN_AUTO_SPOILER</Name>
+  <AnimLength>100</AnimLength>
+  <Animation>
+    <Parameter>
+      <Code>(A:SPOILERS ARMED, bool) 100 * </Code>
+      <Lag>200</Lag>
+    </Parameter>
+  </Animation>
+  <MouseRect>
+    <Cursor>Hand</Cursor>
+    <TooltipText>%SPOILERS %((A:SPOILERS ARMED, bool))%{if}%DISARM%{else}%ARM%</TooltipText>
+    <CallbackCode>
+      (K:SPOILERS_ARM_TOGGLE) ! (&gt;K:SPOILERS_ARM_TOGGLE)
+        </CallbackCode>
+  </MouseRect>
+</PartInfo>
+  <!--Animation name="HEADING KNOB" guid="692593ea-e119-4ce5-9ed3-3d6b96307972" length="200" type="Sim" typeParam2="HEADING KNOB" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>HEADING KNOB</Name>
+    <AnimLength>200</AnimLength>
+    <Animation>
+      <Parameter>
+        <Code>(A:Autopilot heading lock dir,degrees) 1.8 / </Code>
+      </Parameter>
+    </Animation>
+    <MouseRect>
+      <Cursor>Hand</Cursor>
+      <TooltipText>Set heading</TooltipText>
+      <MouseFlags>MoveRepeat+WheelDown+WheelUp+LeftSingle+RightSingle</MouseFlags>
+      <CallbackCode>
+          (M:Event) 'WheelUp'     scmi 0 == if{ (&gt;K:HEADING_BUG_INC) }
+            (M:Event) 'WheelDown'   scmi 0 == if{ (&gt;K:HEADING_BUG_DEC) }
+          (M:Event) 'LeftSingle'  scmi 0 == if{ (&gt;K:HEADING_BUG_INC) }
+          (M:Event) 'RightSingle' scmi 0 == if{ (&gt;K:HEADING_BUG_DEC) }
+      </CallbackCode>
+      </MouseRect>
+    </PartInfo!-->
+    <Animation name="ALTITDE CNTRL" guid="6aac883d-ae13-45fe-89ba-a59a452ac5df" length="200" type="Sim" typeParam2="ALTITDE CNTRL" typeParam="AutoPlay" />
+    <PartInfo>
+      <Name>ALTITDE CNTRL</Name>
+      <AnimLength>200</AnimLength>
+      <Animation>
+        <Parameter>
+          <Code>(A:AUTOPILOT AIRSPEED HOLD VAR, knots)</Code>
+        </Parameter>
+      </Animation>
+      <MouseRect>
+        <Cursor>Hand</Cursor>
+        <TooltipText>Set speed</TooltipText>
+        <MouseFlags>MoveRepeat+WheelDown+WheelUp+LeftSingle+RightSingle</MouseFlags>
+        <CallbackCode>
+        (M:Event) 'WheelUp' scmi 0 == (L:Mach-IAS select, bool) 1 ==  &amp;&amp; if{ (&gt;K:AP_MACH_VAR_INC) }
+      (M:Event) 'WheelUp' scmi 0 == (L:Mach-IAS select, bool) 0 == &amp;&amp; if{ (&gt;K:AP_SPD_VAR_INC) }
+       (M:Event) 'WheelDown' scmi 0 == (L:Mach-IAS select, bool) 1 == &amp;&amp; if{ (&gt;K:AP_MACH_VAR_DEC) }
+      (M:Event) 'WheelDown' scmi 0 == (L:Mach-IAS select, bool) 0 == &amp;&amp; if{ (&gt;K:AP_SPD_VAR_DEC) }
+      (M:Event) 'RightSingle' scmi 0 == (L:Mach-IAS select, bool) 1 ==  &amp;&amp; if{ (&gt;K:AP_MACH_VAR_INC) }
+      (M:Event) 'RightSingle' scmi 0 == (L:Mach-IAS select, bool) 0 == &amp;&amp; if{ (&gt;K:AP_SPD_VAR_INC) }
+       (M:Event) 'LeftSingle' scmi 0 == (L:Mach-IAS select, bool) 1 == &amp;&amp; if{ (&gt;K:AP_MACH_VAR_DEC) }
+      (M:Event) 'LeftSingle' scmi 0 == (L:Mach-IAS select, bool) 0 == &amp;&amp; if{ (&gt;K:AP_SPD_VAR_DEC) }
+             </CallbackCode>
+      </MouseRect>
+    </PartInfo>
+    <Animation name="AIRSPEED HOLD" guid="17f31278-a130-4107-8e0e-fd368f270a02" length="25" type="Sim" typeParam2="AIRSPEED HOLD" typeParam="AutoPlay" />
+    <PartInfo>
+      <Name>AIRSPEED HOLD</Name>
+      <AnimLength>25</AnimLength>
+      <Animation>
+        <Parameter>
+          <Sim>
+            <Variable>AUTOPILOT AIRSPEED HOLD</Variable>
+            <Units>bool</Units>
+            <Scale>50</Scale>
+            <Bias>0</Bias>
+          </Sim>
+          <Lag>400</Lag>
+        </Parameter>
+      </Animation>
+      <MouseRect>
+        <Cursor>Hand</Cursor>
+        <TooltipText>Airspeed hold</TooltipText>
+        <CallbackCode>(&gt;K:AP_PANEL_SPEED_HOLD)</CallbackCode>
+      </MouseRect>
+    </PartInfo>
+  <Animation name="custom_anim_AUTOPILOT_ALTITUDE_LOCK_VAR_34" guid="b418705a-200c-4ae8-8d8b-0797dad75adb" length="100" type="Sim" typeParam2="custom_anim_AUTOPILOT_ALTITUDE_LOCK_VAR_34" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>custom_anim_AUTOPILOT_ALTITUDE_LOCK_VAR_34</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Code>(A:AUTOPILOT ALTITUDE LOCK VAR, feet)</Code>
+      </Parameter>
+    </Animation>
+    <MouseRect>
+      <Cursor>Hand</Cursor>
+      <TooltipText>Set altitude</TooltipText>
+      <MouseFlags>MoveRepeat+WheelDown+WheelUp+LeftSingle+RightSingle</MouseFlags>
+      <CallbackCode>
+      (M:Event) 'WheelUp'     scmi 0 == if{ (&gt;K:AP_ALT_VAR_INC) }
+      (M:Event) 'WheelDown'   scmi 0 == if{ (&gt;K:AP_ALT_VAR_DEC) }
+      (M:Event) 'LeftSingle'  scmi 0 == if{ (&gt;K:AP_ALT_VAR_INC) }
+      (M:Event) 'RightSingle' scmi 0 == if{ (&gt;K:AP_ALT_VAR_DEC) }
+      </CallbackCode>
+    </MouseRect>
+  </PartInfo>
+    <Animation name="ALT HOLD" guid="79ac9efe-c483-48d3-aeeb-40e4f4335052" length="25" type="Sim" typeParam2="ALT HOLD" typeParam="AutoPlay" />
+    <PartInfo>
+      <Name>ALT HOLD</Name>
+      <AnimLength>25</AnimLength>
+      <Animation>
+        <Parameter>
+          <Code>(A:Autopilot altitude lock,feet) 25 * </Code>
+          <Lag>100</Lag>
+        </Parameter>
+      </Animation>
+    <MouseRect>
+      <Cursor>Hand</Cursor>
+      <TooltipText>%Altitude hold %((A:Autopilot altitude lock, bool))%{if}%ON%{else}%OFF%</TooltipText>
+      <CallbackCode>
+				(K:AP_ALT_HOLD,bool) ! (&gt;K:AP_ALT_HOLD,bool)
+					</CallbackCode>
+    </MouseRect>
+  </PartInfo>
+  <Animation name="ATTITUDE HOLD" guid="151d8a35-8d22-4854-8d96-eb8531f17c68" length="25" type="Sim" typeParam2="ATTITUDE HOLD" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>ATTITUDE HOLD</Name>
+    <AnimLength>25</AnimLength>
+    <Animation>
+      <Parameter>
+        <Code>(A:Autopilot attitude hold, bool) 25 * </Code>
+        <Lag>100</Lag>
+      </Parameter>
+    </Animation>
+    <MouseRect>
+      <Cursor>Hand</Cursor>
+      <TooltipText>%Attitude Hold %((A:Autopilot attitude hold, bool))%{if}%ON%{else}%OFF%</TooltipText>
+      <CallbackCode>
+				(K:AP_ATT_HOLD) ! (&gt;K:AP_ATT_HOLD)
+					</CallbackCode>
+    </MouseRect>
+  </PartInfo>
+
+  <Animation name="btn_autopilot_lnav" guid="f9bdb4f8-eeae-4c7e-b33d-957b815a82b7" length="25" type="Sim" typeParam2="btn_autopilot_lnav" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>btn_autopilot_lnav</Name>
+    <AnimLength>25</AnimLength>
+    <Animation>
+      <Parameter>
+        <Code>(A:AUTOPILOT NAV1 LOCK, bool) 25 * </Code>
+        <Lag>100</Lag>
+      </Parameter>
+    </Animation>
+    <MouseRect>
+      <Cursor>Hand</Cursor>
+      <TooltipText>%LNAV %((A:AUTOPILOT NAV1 LOCK, bool))%{if}%ON%{else}%OFF%</TooltipText>
+      <CallbackCode>
+				(K:AP_NAV1_HOLD) ! (&gt;K:AP_NAV1_HOLD)
+					</CallbackCode>
+    </MouseRect>
+  </PartInfo>
+  <Animation name="custom_anim_Autopilot_heading_lock_dir_65" guid="dee79079-4ba5-4c7a-a299-6c9335440721" length="200" type="Sim" typeParam2="custom_anim_Autopilot_heading_lock_dir_65" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>custom_anim_Autopilot_heading_lock_dir_65</Name>
+    <AnimLength>200</AnimLength>
+    <Animation>
+      <Parameter>
+        <Code>(L:C17_API, enum) 200 * </Code>
+      </Parameter>
+    </Animation>
+      <MouseRect>
+        <Cursor>Hand</Cursor>
+        <TooltipText>Set API</TooltipText>
+        <MouseFlags>MoveRepeat+WheelDown+WheelUp+LeftSingle+RightSingle</MouseFlags>
+        <CallbackCode>
+          (M:Event) 'LeftSingle'  scmp 0 == if{ (L:C17_API, enum) ++ 10 min (&gt;L:C17_API, enum) }
+          (M:Event) 'RightSingle' scmp 0 == if{ (L:C17_API, enum) -- 0 max (&gt;L:C17_AP, enum) }
+          (M:Event) 'WheelUp'     scmp 0 == if{ (L:C17_API, enum) ++ 10 min (&gt;L:C17_API, enum) }
+          (M:Event) 'WheelDown'   scmp 0 == if{ (L:C17_API, enum) -- 0 max (&gt;L:C17_API, enum) }
+        </CallbackCode>
+      </MouseRect>
+    </PartInfo>
+    <Animation name="custom_anim_Autopilot_yaw_damper" guid="256fd266-53c3-497c-baf2-918be697291d" length="25" type="Sim" typeParam2="custom_anim_Autopilot_yaw_damper" typeParam="AutoPlay" />
+    <PartInfo>
+      <Name>custom_anim_Autopilot_yaw_damper</Name>
+      <AnimLength>25</AnimLength>
+      <Animation>
+        <Parameter>
+          <Code>(A:Autopilot yaw damper, bool) 25 * </Code>
+          <Lag>100</Lag>
+        </Parameter>
+      </Animation>
+        <MouseRect>
+          <Cursor>Hand</Cursor>
+          <TooltipText>%Yaw damper %((A:Autopilot yaw damper, bool))%{if}%ON%{else}%OFF%</TooltipText>
+          <CallbackCode>
+            (K:YAW_DAMPER_TOGGLE,bool) ! (&gt;K:YAW_DAMPER_TOGGLE,bool)
+              </CallbackCode>
+        </MouseRect>
+      </PartInfo>
+
+
+  <!--UseTemplate Name="ASOBO_AUTOPILOT_Push_Navigation_Template">
+    <NODE_ID>btn_autopilot_lnav</NODE_ID>
+    <ANIM_NAME>btn_autopilot_lnav</ANIM_NAME>
+    <ACTIVE_NODE_ID>btn_autopilot_lnav</ACTIVE_NODE_ID>
+    <AUTOPILOT_PUSH_BUTTON_ON>autopilot_largepush_button_on</AUTOPILOT_PUSH_BUTTON_ON>
+    <AUTOPILOT_PUSH_BUTTON_OFF>autopilot_largepush_button_off</AUTOPILOT_PUSH_BUTTON_OFF>
+    <TOOLTIPID>%((A:AUTOPILOT NAV1 LOCK, bool))%{if}TT:COCKPIT.TOOLTIPS.AUTOPILOT_PANEL_LNAV_ON%{else}TT:COCKPIT.TOOLTIPS.AUTOPILOT_PANEL_LNAV_OFF%{end}</TOOLTIPID>
+    <TYPE>B747</TYPE>
+  </UseTemplate-->
+
+
+
+  <Animation name="switch_auto_throttle" guid="0edac8f4-c549-4f98-8750-f88cf001cd83" typeParam2="switch_auto_throttle" length="50" type="Sim" typeParam="AutoPlay" />
+  <Animation name="switch_flight_director" guid="d712ab7c-8620-44c3-b4cc-c66f1dc449e6" typeParam2="switch_flight_director" length="25" type="Sim" typeParam="AutoPlay" />
+  <Animation name="switch_autopilot_master" guid="dbc9acc0-0542-4699-b117-e93494fceaef" typeParam2="switch_autopilot_master" length="25" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>switch_auto_throttle</Name>
+    <MouseRect>
+      <Cursor>Hand</Cursor>
+      <HelpID>HELPID_AUTOPILOT_AUTOTHROTTLE</HelpID>
+      <TooltipID>TOOLTIPTEXT_AUTOPILOT_AUTOTHROTTLE</TooltipID>
+      <EventID>AUTO_THROTTLE_ARM</EventID>
+    </MouseRect>
+    <AnimLength>50</AnimLength>
+    <Animation>
+      <Parameter>
+        <Sim>
+          <Variable>AUTOPILOT THROTTLE ARM</Variable>
+          <Units>bool</Units>
+          <Scale>50</Scale>
+          <Bias>0</Bias>
+        </Sim>
+        <Lag>400</Lag>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+  <PartInfo>
+    <Name>switch_flight_director</Name>
+    <MouseRect>
+      <Cursor>Hand</Cursor>
+      <HelpID>HELPID_AUTOPILOT_FLIGHT_DIRECTOR_SWITCH</HelpID>
+      <TooltipID>TOOLTIPTEXT_AUTOPILOT_FLIGHT_DIRECTOR_SWITCH</TooltipID>
+      <EventID>TOGGLE_FLIGHT_DIRECTOR</EventID>
+    </MouseRect>
+    <AnimLength>25</AnimLength>
+    <Animation>
+      <Parameter>
+        <Sim>
+          <Variable>AUTOPILOT FLIGHT DIRECTOR ACTIVE</Variable>
+          <Units>bool</Units>
+          <Scale>50</Scale>
+          <Bias>0</Bias>
+        </Sim>
+        <Lag>400</Lag>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+  <PartInfo>
+    <Name>switch_autopilot_master</Name>
+    <MouseRect>
+      <Cursor>Hand</Cursor>
+      <HelpID>HELPID_AUTOPILOT_MASTER</HelpID>
+      <TooltipID>TOOLTIPTEXT_AUTOPILOT_MASTER</TooltipID>
+      <EventID>AP_MASTER</EventID>
+    </MouseRect>
+    <AnimLength>25</AnimLength>
+    <Animation>
+      <Parameter>
+        <Sim>
+          <Variable>AUTOPILOT MASTER</Variable>
+          <Units>bool</Units>
+          <Scale>50</Scale>
+          <Bias>0</Bias>
+        </Sim>
+        <Lag>400</Lag>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+  <Animation name="custom_anim_Autopilot_altitude_lock_25" guid="79ac9efe-c483-48d3-aeeb-40e4f4335052" length="25" type="Sim" typeParam2="custom_anim_Autopilot_altitude_lock_25" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>custom_anim_Autopilot_altitude_lock_25</Name>
+    <AnimLength>25</AnimLength>
+    <Animation>
+      <Parameter>
+        <Code>(A:Autopilot altitude lock,feet) 25 * </Code>
+        <Lag>100</Lag>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+
+  <Animation guid="e8cc59f8-b2de-4ef9-a747-822265db2d4c" name="Flaps_Left" type="Sim" typeparam="AutoPlay"/>
+  <Animation guid="b8f394b5-3c3a-424f-9b50-e81bc4fb486e" name="Flaps_Right" type="Sim" typeparam="AutoPlay"/>
+  <PartInfo>
+    <Name>Flaps_Left</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Sim>
+          <Variable>TRAILING EDGE FLAPS LEFT PERCENT</Variable>
+          <Units>percent</Units>
+          <Scale>1</Scale>
+          <Bias>0</Bias>
+        </Sim>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+  <PartInfo>
+    <Name>Flaps_Right</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Sim>
+          <Variable>TRAILING EDGE FLAPS RIGHT PERCENT</Variable>
+          <Units>percent</Units>
+          <Scale>1</Scale>
+          <Bias>0</Bias>
+        </Sim>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+  <Animation name="r_aileron_key" guid="77db62be-36d4-4c03-bea7-c4cc2a224d9d" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>r_aileron_key</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Sim>
+          <Variable>AILERON RIGHT DEFLECTION PCT</Variable>
+          <Units>percent</Units>
+          <Scale>-1</Scale>
+          <Bias>50</Bias>
+        </Sim>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+  <Animation name="l_aileron_key" guid="93b074a9-7d94-4fe7-a825-7d7758960761" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>l_aileron_key</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Sim>
+          <Variable>AILERON LEFT DEFLECTION PCT</Variable>
+          <Units>percent</Units>
+          <Scale>-1</Scale>
+          <Bias>50</Bias>
+        </Sim>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+</ModelInfo>

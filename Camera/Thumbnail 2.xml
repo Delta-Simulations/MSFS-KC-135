@@ -1,0 +1,8 @@
+<ThumbnailFile Version="2.0">
+	<ThumbnailGroup SubFolder="">
+		<Thumbnail Width="1920" Height="1080" Camera="Custom" CaptureAlpha="0" File="thumbnail.jpg" MakeUniqueFilename="0" ShowsGround="1" ShowsHangar="0" CloseHangarDoors="0" OptimiseCamera="0">
+			<CustomCamera OffsetX="-25.57" OffsetY="9.25" OffsetZ="51.29" Yaw="2.513433456" Roll="0.000000000" Pitch="-0.173212022" Fov="0.160853326" FovMultiplier="1.000000000" AlignWithGround="1"/>
+		</Thumbnail>
+	</ThumbnailGroup>
+</ThumbnailFile>
+
