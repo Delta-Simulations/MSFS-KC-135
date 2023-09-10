@@ -1,0 +1,30 @@
+<!-- AURAL 500FT -->
+<Alert>
+    <Type>SoundOnly</Type>
+    <SoundEvent>voice_alert_500ft</SoundEvent>
+    <Condition>
+        <StateMachine>
+            <State id="Under" value="0">
+                <Transition to="Over">
+                    <GreaterEqual>
+                        <Simvar name="PLANE ALT ABOVE GROUND" unit="feet"/>
+                        <Constant>500</Constant>
+                    </GreaterEqual>
+                </Transition>
+            </State>
+            <State id="Over" value="0">
+                <Transition to="Alerting">
+                    <Lower>
+                        <Simvar name="PLANE ALT ABOVE GROUND" unit="feet"/>
+                        <Constant>500</Constant>
+                    </Lower>
+                </Transition>
+            </State>
+            <State id="Alerting" value="1">
+                <Transition to="Under">
+                    <Constant>1</Constant>
+                </Transition>
+            </State>
+        </StateMachine>
+    </Condition>
+</Alert>

@@ -12,6 +12,8 @@
 		<Include ModelBehaviorFile="Asobo\Airliner\Airbus.xml"/>
 		<Include ModelBehaviorFile="Asobo\Exterior.xml"/>
     <Include ModelBehaviorFile="Asobo\Generic\FX.xml"/>
+    <Include Path="DeltaSim-C17\DeltaSim_Switch_Template.xml"/>
+    <Include Path="DeltaSim-C17\DeltaSim_Lighting_Template.xml"/>
 
 		<Component ID="Yoke_Controls">
         <UseTemplate Name="ASOBO_HANDLING_Spoilers_Template">
@@ -314,6 +316,33 @@
 					<ANIMTIP_1>TT:COCKPIT.TOOLTIPS.STARTER_4_SET_ON</ANIMTIP_1>
 					<TT_ICON>MOVE_Y</TT_ICON>
 				</UseTemplate>
+
+        <UseTemplate Name="DELTASIM_Finite_Knob_Template">
+          <NODE_ID>Knob_ARO_PNL</NODE_ID>
+          <ANIM_CODE>(L:KC135_ARO_PNL_BACKLIGHT,percent) 10 *</ANIM_CODE>
+          <CLOCKWISE_CODE>
+            (L:KC135_ARO_PNL_BACKLIGHT, percent) 1 + 10 min (&gt;L:KC135_ARO_PNL_BACKLIGHT, percent)
+          </CLOCKWISE_CODE>
+          <ANTICLOCKWISE_CODE>
+            (L:KC135_ARO_PNL_BACKLIGHT, percent) 1 - 0 max (&gt;L:KC135_ARO_PNL_BACKLIGHT, percent)
+          </ANTICLOCKWISE_CODE>
+          <CW_ANIMTIP>ARO PNL INTENSITY</CW_ANIMTIP>
+          <CCW_ANIMTIP>ARO PNL INTENSITY</CCW_ANIMTIP>
+        </UseTemplate>
+
+        <UseTemplate Name="DELTASIM_Finite_Knob_Template">
+          <NODE_ID>Knob_ARO_Flood</NODE_ID>
+          <ANIM_CODE>(A:LIGHT POTENTIOMETER:2, percent)</ANIM_CODE>
+          <CLOCKWISE_CODE>
+            (A:LIGHT POTENTIOMETER:2, percent) 5 + 100 min (&gt;K:LIGHT_POTENTIOMETER_2_SET)
+          </CLOCKWISE_CODE>
+          <ANTICLOCKWISE_CODE>
+            (A:LIGHT POTENTIOMETER:2, percent) 5 - 0 max (&gt;K:LIGHT_POTENTIOMETER_2_SET)
+          </ANTICLOCKWISE_CODE>
+          <CW_ANIMTIP>PNL_FLOOD_LT</CW_ANIMTIP>
+          <CCW_ANIMTIP>PNL_FLOOD_LT</CCW_ANIMTIP>
+        </UseTemplate>
+
 			</Component>
 
 
@@ -323,6 +352,13 @@
 
 <!-- OVERHEAD-->
 <!-- =============== FUEL SYSTEM CODE =====================-->
+<Animation name="AROStation_PNL" guid="810b6411-b622-412f-ab10-699ce4af556d" length="1" type="Sim" typeParam="AutoPlay" />
+<PartInfo>
+<Name>AROStation_PNL</Name>
+<Materials> <Emissive> <Parameter>
+<Code>(L:KC135_ARO_PNL_BACKLIGHT, percent) 100 / </Code> 
+</Parameter> </Emissive> </Materials>
+</PartInfo>
 
 
 <Animation name="Fuel door" guid="430b1bbc-0a25-4cf1-a877-d3288e3de9e9" type="Sim" typeparam="AutoPlay" />
@@ -2411,7 +2447,7 @@
 <!-- ===========================================  ENGINE QUADRANT ===============================================-->
 
 <Animation name="lever_trimtab_elevator_trimotor" guid="29bb9907-d2bc-44dd-8550-5780e0539203" length="100" type="Sim" typeParam2="lever_trimtab_elevator_trimotor" typeParam="AutoPlay" />
-<Animation name="lever_speed_brake" guid="fb0ef2ea-47a9-41a7-8ad4-3f2a7601024a" typeParam2="lever_speed_brake" length="50" type="Sim" typeParam="AutoPlay" />
+<Animation name="Push_Boom_Control" guid="fb0ef2ea-47a9-41a7-8ad4-3f2a7601024a" length="100" type="Sim" typeParam="AutoPlay" />
 
 <PartInfo>
   <Name>lever_trimtab_elevator_trimotor</Name>
@@ -2440,8 +2476,8 @@
     </CallbackJumpDragging>
   </MouseRect>
 </PartInfo>
-<!--PartInfo>
-  <Name>lever_speed_brake</Name>
+<PartInfo>
+  <Name>Push_Boom_Control</Name>
   <MouseRect>
     <Cursor>Hand</Cursor>
     <HelpID>HELPID_GAUGE_SPEED_BRAKE</HelpID>
@@ -2457,7 +2493,7 @@
       <EventID>SPOILERS_SET</EventID>
     </CallbackDragging>
   </MouseRect>
-  <AnimLength>50</AnimLength>
+  <AnimLength>100</AnimLength>
   <Animation>
     <Parameter>
       <Sim>
@@ -2469,7 +2505,7 @@
       <Lag>200</Lag>
     </Parameter>
   </Animation>
-</PartInfo-->
+</PartInfo>
 
 <PartInfo>
   <Name>lever_speed_brake</Name>

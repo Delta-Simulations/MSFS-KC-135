@@ -1,0 +1,77 @@
+<Gauge Name="Lights" Version="1.0">
+
+
+<Comment>
+*************************************************
+Cockpit Lights
+*************************************************
+</Comment>
+
+<Element>
+<Select>
+<Value>
+
+(A:LIGHT POTENTIOMETER:11, percent) 0 > (A:LIGHT CABIN:2, bool) 0 == and if{ 2 (&gt;K:TOGGLE_CABIN_LIGHTS) }
+(A:LIGHT POTENTIOMETER:11, percent) 0 == (A:LIGHT CABIN:2, bool) 1 == and if{ 2 (&gt;K:TOGGLE_CABIN_LIGHTS) }
+
+(A:LIGHT POTENTIOMETER:12, percent) 0 > (A:LIGHT CABIN:3, bool) 0 == and if{ 3 (&gt;K:TOGGLE_CABIN_LIGHTS) }
+(A:LIGHT POTENTIOMETER:12, percent) 0 == (A:LIGHT CABIN:3, bool) 1 == and if{ 3 (&gt;K:TOGGLE_CABIN_LIGHTS) }
+
+(A:LIGHT POTENTIOMETER:13, percent) 0 > (A:LIGHT PANEL:4, bool) 0 == and if{ 4 (&gt;K:PANEL_LIGHTS_TOGGLE) }
+(A:LIGHT POTENTIOMETER:13, percent) 0 == (A:LIGHT PANEL:4, bool) 1 == and if{ 4 (&gt;K:PANEL_LIGHTS_TOGGLE) }
+
+(A:LIGHT POTENTIOMETER:14, percent) 0 > (A:LIGHT PANEL:5, bool) 0 == and if{ 5 (&gt;K:PANEL_LIGHTS_TOGGLE) }
+(A:LIGHT POTENTIOMETER:14, percent) 0 == (A:LIGHT PANEL:5, bool) 1 == and if{ 5 (&gt;K:PANEL_LIGHTS_TOGGLE) }
+
+(A:LIGHT POTENTIOMETER:15, percent) 0 > (A:LIGHT PANEL:6, bool) 0 == and if{ 6 (&gt;K:PANEL_LIGHTS_TOGGLE) }
+(A:LIGHT POTENTIOMETER:15, percent) 0 == (A:LIGHT PANEL:6, bool) 1 == and if{ 6 (&gt;K:PANEL_LIGHTS_TOGGLE) }
+
+(A:LIGHT POTENTIOMETER:16, percent) 0 > (A:LIGHT PANEL:7, bool) 0 == and if{ 7 (&gt;K:PANEL_LIGHTS_TOGGLE) }
+(A:LIGHT POTENTIOMETER:16, percent) 0 == (A:LIGHT PANEL:7, bool) 1 == and if{ 7 (&gt;K:PANEL_LIGHTS_TOGGLE) }
+
+(A:LIGHT POTENTIOMETER:17, percent) 0 > (A:LIGHT PANEL:8, bool) 0 == and if{ 8 (&gt;K:PANEL_LIGHTS_TOGGLE) }
+(A:LIGHT POTENTIOMETER:17, percent) 0 == (A:LIGHT PANEL:8, bool) 1 == and if{ 8 (&gt;K:PANEL_LIGHTS_TOGGLE) }
+
+(A:LIGHT POTENTIOMETER:18, percent) 0 > (A:LIGHT PANEL:9, bool) 0 == and if{ 9 (&gt;K:PANEL_LIGHTS_TOGGLE) }
+(A:LIGHT POTENTIOMETER:18, percent) 0 == (A:LIGHT PANEL:9, bool) 1 == and if{ 9 (&gt;K:PANEL_LIGHTS_TOGGLE) }
+
+(A:LIGHT POTENTIOMETER:19, percent) 0 > (A:LIGHT PANEL:10, bool) 0 == and if{ 10 (&gt;K:PANEL_LIGHTS_TOGGLE) }
+(A:LIGHT POTENTIOMETER:19, percent) 0 == (A:LIGHT PANEL:10, bool) 1 == and if{ 10 (&gt;K:PANEL_LIGHTS_TOGGLE) }
+
+
+</Value>
+</Select>
+</Element> 
+<Comment>
+    *************************************************
+    master caution
+    *************************************************
+    </Comment>
+<Element>
+    <Select>
+      <Value>(A:Electrical Genalt1 bus voltage,volts) 22 &lt; (L:GEN1,bool) ! &amp;&amp; if{ 1 (>L:GEN1,bool) 1 (>L:Master Caution,bool) } (A:Electrical Genalt1 bus voltage,volts) 23 > (L:GEN1,bool) &amp;&amp; if{ 0 (>L:GEN1,bool) } (A:General Eng1 oil Temperature, Celsius) 177 > (L:ENG1 OT,bool) ! &amp;&amp; if{ 1 (>L:ENG1 OT,bool) 1 (>L:Master Caution,bool) } (A:General Eng1 oil Temperature,Celsius) 160 &lt; (L:ENG1 OT,bool) &amp;&amp; if{ 0 (>L:ENG1 OT,bool) } (A:General Eng1 Exhaust Gas Temperature,celsius) 655 > (L:ENG1 EGT,bool) ! &amp;&amp; if{ 1 (>L:ENG1 EGT,bool) 1 (>L:Master Caution,bool) } (A:General Eng1 Exhaust Gas Temperature,Celsius) 640 &lt; (L:ENG1 EGT,bool) &amp;&amp; if{ 0 (>L:ENG1 EGT,bool) } (L:FSP FP1,bool) ! (L:FP1,bool) ! &amp;&amp; if{ 1 (>L:FP1,bool) 1 (>L:Master Caution,bool) } (L:FSP FP1,bool) (L:FP1,bool) &amp;&amp; if{ 0 (>L:FP1,bool) }</Value>
+    </Select>
+  </Element>
+  <Element>
+    <Select>
+      <Value>(A:Electrical Genalt2 bus voltage,volts) 22 &lt; (L:GEN2,bool) ! &amp;&amp; if{ 1 (>L:GEN2,bool) 1 (>L:Master Caution,bool) } (A:Electrical Genalt2 bus voltage,volts) 23 > (L:GEN2,bool) &amp;&amp; if{ 0 (>L:GEN2,bool) } (A:General Eng2 oil Temperature, Celsius) 177 > (L:ENG2 OT,bool) ! &amp;&amp; if{ 1 (>L:ENG2 OT,bool) 1 (>L:Master Caution,bool) } (A:General Eng2 oil Temperature,Celsius) 160 &lt; (L:ENG2 OT,bool) &amp;&amp; if{ 0 (>L:ENG2 OT,bool) } (A:General Eng2 Exhaust Gas Temperature,celsius) 655 > (L:ENG2 EGT,bool) ! &amp;&amp; if{ 1 (>L:ENG2 EGT,bool) 1 (>L:Master Caution,bool) } (A:General Eng2 Exhaust Gas Temperature,Celsius) 640 &lt; (L:ENG2 EGT,bool) &amp;&amp; if{ 0 (>L:ENG2 EGT,bool) } (L:FSP FP2,bool) ! (L:FP2,bool) ! &amp;&amp; if{ 1 (>L:FP2,bool) 1 (>L:Master Caution,bool) } (L:FSP FP2,bool) (L:FP2,bool) &amp;&amp; if{ 0 (>L:FP2,bool) }</Value>
+    </Select>
+  </Element>
+  <Element>
+    <Select>
+      <Value>(A:Electrical Genalt3 bus voltage,volts) 22 &lt; (L:GEN3,bool) ! &amp;&amp; if{ 1 (>L:GEN3,bool) 1 (>L:Master Caution,bool) } (A:Electrical Genalt3 bus voltage,volts) 23 > (L:GEN3,bool) &amp;&amp; if{ 0 (>L:GEN3,bool) } (A:General Eng3 oil Temperature, Celsius) 177 > (L:ENG3 OT,bool) ! &amp;&amp; if{ 1 (>L:ENG3 OT,bool) 1 (>L:Master Caution,bool) } (A:General Eng3 oil Temperature,Celsius) 160 &lt; (L:ENG3 OT,bool) &amp;&amp; if{ 0 (>L:ENG3 OT,bool) } (A:General Eng3 Exhaust Gas Temperature,celsius) 655 > (L:ENG3 EGT,bool) ! &amp;&amp; if{ 1 (>L:ENG3 EGT,bool) 1 (>L:Master Caution,bool) } (A:General Eng3 Exhaust Gas Temperature,Celsius) 640 &lt; (L:ENG3 EGT,bool) &amp;&amp; if{ 0 (>L:ENG3 EGT,bool) } (L:FSP FP3,bool) ! (L:FP3,bool) ! &amp;&amp; if{ 1 (>L:FP3,bool) 1 (>L:Master Caution,bool) } (L:FSP FP3,bool) (L:FP3,bool) &amp;&amp; if{ 0 (>L:FP3,bool) }</Value>
+    </Select>
+  </Element>
+  <Element>
+    <Select>
+      <Value>(A:Electrical Genalt4 bus voltage,volts) 22 &lt; (L:GEN4,bool) ! &amp;&amp; if{ 1 (>L:GEN4,bool) 1 (>L:Master Caution,bool) } (A:Electrical Genalt4 bus voltage,volts) 23 > (L:GEN4,bool) &amp;&amp; if{ 0 (>L:GEN4,bool) } (A:General Eng4 oil Temperature, Celsius) 177 > (L:ENG4 OT,bool) ! &amp;&amp; if{ 1 (>L:ENG4 OT,bool) 1 (>L:Master Caution,bool) } (A:General Eng4 oil Temperature,Celsius) 160 &lt; (L:ENG4 OT,bool) &amp;&amp; if{ 0 (>L:ENG4 OT,bool) } (A:General Eng4 Exhaust Gas Temperature,celsius) 655 > (L:ENG4 EGT,bool) ! &amp;&amp; if{ 1 (>L:ENG4 EGT,bool) 1 (>L:Master Caution,bool) } (A:General Eng4 Exhaust Gas Temperature,Celsius) 640 &lt; (L:ENG4 EGT,bool) &amp;&amp; if{ 0 (>L:ENG4 EGT,bool) } (L:FSP FP4,bool) ! (L:FP4,bool) ! &amp;&amp; if{ 1 (>L:FP4,bool) 1 (>L:Master Caution,bool) } (L:FSP FP4,bool) (L:FP4,bool) &amp;&amp; if{ 0 (>L:FP4,bool) }</Value>
+    </Select>
+  </Element>
+  <!--GENERAL-->
+  <Element>
+    <Select>
+      <Value>(A:General Eng1 anti ice position,bool) (A:General eng2 anti ice position,bool) + (A:General Eng3 anti ice position,bool) + (A:General eng4 anti ice position,bool) + 4 &lt; (A:Ambient temperature,celsius) 0 &lt; &amp;&amp; (L:ENG AI,bool) ! &amp;&amp; if{ 1 (>L:ENG AI,bool) 1 (>L:Master Caution,bool) } (A:General Eng1 anti ice position,bool) (A:General Eng2 anti ice position,bool) + (A:General Eng3 anti ice position,bool) + (A:General Eng4 anti ice position,bool) + 4 == (A:Ambient temperature,celsius) 5 > || (L:ENG AI,bool) &amp;&amp; if{ 0 (>L:ENG AI,bool) } (A:Ambient temperature,celsius) 3 > (L:ENG AI,bool) &amp;&amp; if{ 0 (>L:ENG AI,bool) } (A:Ambient temperature,celsius) 5 &lt; (A:Pitot heat,bool) ! &amp;&amp; if{ 1 (>L:Master Caution,bool) } (A:Canopy open,bool) if{ 1 (>L:Master caution,bool) }</Value>
+    </Select>
+  </Element>
+
+</Gauge>

@@ -189,17 +189,11 @@
 				<BLURRED_NODE_ID>ENG_4_BLURRED_LEFT</BLURRED_NODE_ID>
 			</UseTemplate>
       
-      <Component ID="Probe_Anim" Node="Empty.007">
-        <UseTemplate Name="ASOBO_GT_Anim_Code">
-          <PART_ID>Empty.007</PART_ID>
-          <ANIM_NAME>Probe_Anim</ANIM_NAME>
-          <NODE_ID>Empty.007</NODE_ID>
-          <ANIM_CODE>
-                (A:SPOILERS RIGHT POSITION,percent) 100 * 
-            </ANIM_CODE>
-          <ANIM_LAG>5</ANIM_LAG>
-        </UseTemplate>
-    </Component>
+    <UseTemplate Name="ASOBO_HANDLING_Spoilers_Template">
+      <ANIM_NAME_LEFT>Probe_Anim</ANIM_NAME_LEFT>
+      <ANIM_LAG>25</ANIM_LAG>
+      <MAX_VALUE>100</MAX_VALUE>
+    </UseTemplate>
 
 		</Component>
 

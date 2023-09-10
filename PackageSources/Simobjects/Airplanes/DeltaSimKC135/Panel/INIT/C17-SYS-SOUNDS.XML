@@ -7,6 +7,21 @@
     <Select>
           <Value>    
             (A:PLANE ALT ABOVE GROUND,feet) 10 - (&gt;L:C17_RADALT,feet)
+
+
+<!-- Autopilot glaresheild LGT -->
+(A:LIGHT POTENTIOMETER:2, percent) 0 > (A:LIGHT CABIN:2, bool) 0 == and if{ 2 (&gt;K:TOGGLE_CABIN_LIGHTS) }
+(A:LIGHT POTENTIOMETER:2, percent) 0 == (A:LIGHT CABIN:2, bool) 1 == and if{ 2 (&gt;K:TOGGLE_CABIN_LIGHTS) }
+
+
+    (A:SPOILERS RIGHT POSITION, percent) 0 &gt; 
+    if{
+      1 (&gt;L:C17_UARRSI_Slipway, bool)
+    } els{ 
+      0 (&gt;L:C17_UARRSI_Slipway, bool)
+    }
+
+
           </Value>
     </Select>
   </Element>

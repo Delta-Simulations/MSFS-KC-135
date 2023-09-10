@@ -19,6 +19,14 @@
 			<AssetDir>PackageDefinitions\deltasimulations-kc135\ContentInfo\</AssetDir>
 			<OutputDir>ContentInfo\deltasimulations-kc135\</OutputDir>
 		</AssetGroup>
+		<AssetGroup Name="E6B">
+			<Type>SimObject</Type>
+			<Flags>
+				<FSXCompatibility>false</FSXCompatibility>
+			</Flags>
+			<AssetDir>PackageSources\Simobjects\Airplanes\DeltaSimE6B\</AssetDir>
+			<OutputDir>Simobjects\Airplanes\DeltaSimE6B\</OutputDir>
+		</AssetGroup>
 		<AssetGroup Name="KC135">
 			<Type>SimObject</Type>
 			<Flags>
@@ -27,13 +35,13 @@
 			<AssetDir>PackageSources\Simobjects\Airplanes\DeltaSimKC135\</AssetDir>
 			<OutputDir>Simobjects\Airplanes\DeltaSimKC135\</OutputDir>
 		</AssetGroup>
-		<AssetGroup Name="E6B">
-			<Type>SimObject</Type>
+		<AssetGroup Name="ModelBehaviorDefs">
+			<Type>Copy</Type>
 			<Flags>
 				<FSXCompatibility>false</FSXCompatibility>
 			</Flags>
-			<AssetDir>PackageSources\Simobjects\Airplanes\DeltaSimE6B\</AssetDir>
-			<OutputDir>Simobjects\Airplanes\DeltaSimE6B\</OutputDir>
+			<AssetDir>PackageSources\ModelBehaviorDefs\</AssetDir>
+			<OutputDir>ModelBehaviorDefs\</OutputDir>
 		</AssetGroup>
 		<AssetGroup Name="RC135">
 			<Type>SimObject</Type>
@@ -53,3 +61,4 @@
 		</AssetGroup>
 	</AssetGroups>
 </AssetPackage>
+

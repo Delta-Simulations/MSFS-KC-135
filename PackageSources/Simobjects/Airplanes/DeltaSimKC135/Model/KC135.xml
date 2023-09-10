@@ -199,11 +199,26 @@
             </ANIM_CODE>
           <ANIM_LAG>5</ANIM_LAG>
         </UseTemplate>
+
+
     </Component>
 
 		</Component>
 
   </Behaviors>
+
+  <Animation name="c_wheel" guid="c5a5a7f1-d27f-47ec-acef-7d3c3ee88a64" length="200" type="Sim" typeParam="AutoPlay" />
+  <PartInfo>
+    <Name>c_wheel</Name>
+    <AnimLength>200</AnimLength>
+    <Animation>
+      <Parameter>
+      <Code>
+        (A:GEAR CENTER STEER ANGLE, degrees) 0.45 * 100 +
+        </Code>
+      </Parameter>
+    </Animation>
+    </PartInfo>
 
   <Animation name="Boom_Drogue_Move" guid="40503b31-501b-421d-82cc-c08f880d9aa0" length="100" type="Sim" typeParam="AutoPlay" />
   <PartInfo>

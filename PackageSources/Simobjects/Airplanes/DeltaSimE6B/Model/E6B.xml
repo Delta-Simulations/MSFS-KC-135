@@ -194,28 +194,18 @@
 				<BLURRED_NODE_ID>ENG_4_BLURRED_LEFT</BLURRED_NODE_ID>
 			</UseTemplate>
 
-			<!-- <UseTemplate Name="ASOBO_HANDLING_Spoilers_Template">
+			<UseTemplate Name="ASOBO_HANDLING_Spoilers_Template">
 				<ANIM_NAME_LEFT>AR Recpt</ANIM_NAME_LEFT>
+        <ANIM_NAME_RIGHT>AR Recpt</ANIM_NAME_RIGHT>
 				<ANIM_LAG>25</ANIM_LAG>
         <MAX_VALUE>100</MAX_VALUE>
-			</UseTemplate> -->
+			</UseTemplate>
 
 
 		</Component>
 
   </Behaviors>
 	<!-- CUSTOM ANIMATIONS GO BELOW -->
- <Animation name="AR Recpt" guid="f1b3b137-6b59-447b-a1cc-92fb00c76311" type="Sim" typeparam="AutoPlay" />
-  <PartInfo>
-	  <Name>AR Recpt</Name>
-	  <AnimLength>100</AnimLength>
-	  <Animation>
-		  <Parameter>
-        <Code>(A:SPOILERS LEFT POSITION, Percent) 100 *</Code>
-			  <Lag>50</Lag>
-	  </Parameter>
-	  </Animation>
-  </PartInfo>
 
 <Animation name="Cargo_enterance" guid="33fbbb17-d9a3-4f0e-9126-5f1e93c683fa" length="100" type="Sim" typeparam="AutoPlay" />
 <PartInfo>
