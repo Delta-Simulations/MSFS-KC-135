@@ -1,0 +1,7 @@
+<ModelBehaviors>
+	<!-- Common Templates -->
+
+	<Include RelativeFile="DeltaSim_Switch_Template.xml"/>
+	<Include RelativeFile="DeltaSim_Lighting_Template.xml"/>
+	<Include RelativeFile="DeltaSim_Anim_Template.xml"/>
+</ModelBehaviors>

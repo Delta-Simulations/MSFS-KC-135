@@ -12,9 +12,13 @@
 		<Include ModelBehaviorFile="Asobo\Airliner\Airbus.xml"/>
 		<Include ModelBehaviorFile="Asobo\Exterior.xml"/>
     <Include ModelBehaviorFile="Asobo\Generic\FX.xml"/>
-    <Include Path="DeltaSim-C17\DeltaSim_Switch_Template.xml"/>
-    <Include Path="DeltaSim-C17\DeltaSim_Lighting_Template.xml"/>
-
+    <Include Path="DeltaSim-C135\Index.xml"/>
+      <!-- <UseTemplate Name="Control_Intercept_DELTASIM">
+        <NAME>Gun_Trigger</NAME>
+        <BINDING_SET_0_EVENT_ID>MAC_CREADY_SETTING_INC</BINDING_SET_0_EVENT_ID>
+        <SET_CODE>
+        </SET_CODE>
+      </UseTemplate> -->
 		<Component ID="Yoke_Controls">
         <UseTemplate Name="ASOBO_HANDLING_Spoilers_Template">
           <ANIM_NAME_LEFT>Boom_control</ANIM_NAME_LEFT>

@@ -2,3 +2,6 @@ Packages/
 PackagesMetadata/
 _PackageInt/
 node_modules/
+.ace/
+bundles/
+/OtherVariants
